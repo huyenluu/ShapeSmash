@@ -1,0 +1,129 @@
+:root {
+  --primary-color: #646cff;
+  --secondary-color: #535bf2;
+  --background-dark: #242424;
+  --background-light: #ffffff;
+  --text-dark: #213547;
+  --text-light: rgba(255, 255, 255, 0.87);
+  --error-color: #ff6464;
+
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  color: var(--text-light);
+  background-color: var(--background-dark);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#app {
+  max-width: 800px;
+  padding: 2rem;
+  text-align: center;
+}
+
+h1.game-title {
+  font-size: 3.2em;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+}
+
+.game-container {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  background-color: #333;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.game-text-fields {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 20px;
+}
+
+.textfield {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 5px;
+  color: var(--text-light);
+}
+
+.actions-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.action-group {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 45%;
+  position: relative;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+button {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 60px;
+  font-size: 24px;
+}
+
+p>span {
+  color: var(--primary-color);
+  font-weight: bold;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+button:hover {
+  background-color: var(--secondary-color);
+}
+
+button:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+
+.error {
+  color: var(--error-color);
+  font-size: 12px;
+  position: absolute;
+  top: 90px;
+}
+
+.hidden {
+  display: none;
+}
+
+#resetValues {
+  width: 120px;
+  font-size: 18px;
+}

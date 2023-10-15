@@ -23,7 +23,7 @@ ShapeSmash is a fun and interactive web game built with [PIXI.js](https://pixijs
 1. **Clone the Repository**
 
    ```sh
-   git clone https://github.com/your-username/shapesmash-pixi-js.git
+   git clone https://github.com/huyenluu/ShapeSmash.git
    cd shapesmash-pixi-js
    ```
 

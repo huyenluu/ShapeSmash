@@ -13,6 +13,8 @@ const COLORS = [
 ];
 const SHAPE_TYPE = ["triangle", "square", "circle", "star"];
 
+// create a shape with a random colors with a dinamic type and calculates its area
+// shape type can be any values from SHAPE_TYPE array
 class ShapeFactory {
   static createShape(type) {
     const shape = new PIXI.Graphics();
@@ -50,6 +52,7 @@ class ShapeFactory {
   }
 }
 
+// managing individual shape that can move along the y-axis
 class FallingShape extends PIXI.Graphics {
   constructor(x, y, type) {
     super();
@@ -77,6 +80,7 @@ class FallingShape extends PIXI.Graphics {
   }
 }
 
+// manages the creation, removal, and updating of all shapes in the PIXI application
 class ShapeManager {
   constructor(app) {
     this.app = app;

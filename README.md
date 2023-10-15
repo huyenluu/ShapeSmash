@@ -2,6 +2,8 @@
 
 ShapeSmash is a fun and interactive web game built with [PIXI.js](https://pixijs.io/), a powerful 2D rendering engine for the web. The game involves dynamically generated shapes that fall under gravity, and it allows users to interact with them by clicking. The game also provides a UI to manipulate the gravity and the rate of shape generation.
 
+[Live demo](https://shape-smash-three.vercel.app/)
+
 ## Features
 
 - **Dynamic Shape Generation**: Shapes are generated dynamically and fall due to gravity.

@@ -1,7 +1,10 @@
+import { config } from "./config";
 class UIManager {
   constructor() {
     this.shapesPerSecondText = document.getElementById("shapesPerSecond");
     this.gravityValueText = document.getElementById("gravityValue");
+    this.updateGravityValue(config.initialGravity);
+    this.updateShapesPerSecond(config.initialShapesPerSecond);
   }
 
   updateShapesPerSecond(value) {

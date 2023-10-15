@@ -88,7 +88,7 @@ class ShapeManager {
     this.lastSpawnTime = 0;
     this.maxShapeWidth = 60;
     this.maxShapeHeight = 50;
-    this.gravity = 0.5;
+    this.gravity = 1;
     this.shapeSpawnInterval = 1000;
     this.shapeClicked = false;
     this.shapesPerSecond = 1;
@@ -148,7 +148,7 @@ class ShapeManager {
   updateShapes(delta) {
     for (const shape of this.shapes) {
       shape.update(delta);
-      if (shape.y > this.app.screen.height + this.maxShapeHeight) {
+      if (shape.y > this.app.screen.height) {
         this.app.stage.removeChild(shape);
         shape.destroy();
         this.shapes = this.shapes.filter((s) => s !== shape);
@@ -206,6 +206,7 @@ class ShapeManager {
       document.querySelector("#error-gravity").classList.remove("hidden");
     }
   }
+
 }
 
 export { ShapeFactory, FallingShape, ShapeManager };

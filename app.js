@@ -6,21 +6,20 @@ import "./style.css";
 class App {
   constructor() {
 
-    const originalWidth = 800; 
-    const originalHeight = 480;
     this.app = new PIXI.Application({
-      width: originalWidth,
-      height: originalHeight,
+      width: 800,
+      height: 480,
       backgroundColor: 0x2c3e50,
       view: document.createElement("canvas"),
-      resizeTo: window
     });
 
     document.getElementById("canvas").appendChild(this.app.view);
 
     // handle window resize and ajust canvas size for smaller screens
-    this.resize();
-    window.addEventListener('resize', this.resize.bind(this));
+    if ( this.isSmallScreen()) {
+      this.resize();
+    }
+    // window.addEventListener('resize', this.resize.bind(this));
 
     this.shapeManager = new ShapeManager(this.app);
     this.uiManager = new UIManager();
@@ -54,6 +53,9 @@ class App {
       this.shapeManager.decreaseGravity();
       this.uiManager.updateGravityValue(this.shapeManager.gravity);
     });
+
+    // Event listeners for visibility change
+    document.addEventListener("visibilitychange", this.handleVisibilityChange.bind(this), false);
   }
 
   // updates the state and UI on each frame of an animation
@@ -88,13 +90,23 @@ class App {
   resize() {
     const margin = this.isSmallScreen() ? 20 : 0; // 20px margin for mobile, 0px for others
     const newWidth = window.innerWidth - 2 * margin;
-    const newHeight = window.innerHeight - 2 * margin;
+    const newHeight = 400;
     this.app.renderer.resize(newWidth, newHeight)
   }
 
   isSmallScreen() {
     return window.innerWidth <= 840;
-}
+  }
+  
+  handleVisibilityChange() {
+    if (document.hidden) {
+        // Pause the animation
+        this.app.ticker.stop();
+    } else {
+        // Resume the animation
+        this.app.ticker.start();
+    }
+  }
 
 }
 
